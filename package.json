@@ -1,0 +1,24 @@
+{
+  "name": "note-taker-express",
+  "version": "1.0.0",
+  "description": "take notes",
+  "main": "app.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lorna-IT/note-taker-express.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lorna-IT/note-taker-express/issues"
+  },
+  "homepage": "https://github.com/Lorna-IT/note-taker-express#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.2"
+  }
+}
