@@ -112,12 +112,12 @@ const renderNoteList = (notes) => {
   for (var i = 0; i < notes.length; i++) {
     const note = notes[i];
 
-    const $li = $("<li class='list-group-item'>").data(note);
+    const $li = $(`<li id="${note.id}" class='list-group-item'>`).data(note);
     const $span = $("<span>").text(note.title);
     const $delBtn = $(
-      "<i class='fas fa-trash-alt float-right text-danger delete-note'>"
+      `<i class='fas fa-trash-alt float-right text-danger delete-note'>`
     );
-
+    
     $li.append($span, $delBtn);
     noteListItems.push($li);
   }
