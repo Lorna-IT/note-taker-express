@@ -30,14 +30,15 @@ app.get("/notes", (_, response) => {
 // GET API Routes
 // ===================================================
 
-// Read the file where the notes are stored
+
+
+// Displays the api route for all the notes 
+app.get("/api/notes", (_, response) => {
+	// Read the file where the notes are stored
 let storedData = fs.readFileSync("./public/db/db.json", "utf8");
 
 // Create array to save the notes
 let notesArray = JSON.parse(storedData);
-
-// Displays the api route for all the notes 
-app.get("/api/notes", (_, response) => {
 	return response.json(notesArray);
 });
 
@@ -110,6 +111,11 @@ app.delete("/api/notes/:id", function(request, response) {
 	// req.body is the json id sent from the user 
 	const deletedNote = request.params.id;
 
+	// reads the db.json file
+	const data = fs.readFileSync("./public/db/db.json", "utf8");
+	// converts the note strings into an object
+	let notesArray = JSON.parse(data);
+
 	notesArray = notesArray.filter((note) => {
 		return note.id != deletedNote;
 	});
@@ -117,7 +123,7 @@ app.delete("/api/notes/:id", function(request, response) {
 	console.log(notesArray)
 	const deletedNotes = JSON.stringify(notesArray);
 
-	fs.writeFileSync("./db/db.json", deletedNotes, "utf8", err => {
+	fs.writeFileSync("./public/db/db.json", deletedNotes, "utf8", err => {
 		if (err) throw err;
 	});
 
